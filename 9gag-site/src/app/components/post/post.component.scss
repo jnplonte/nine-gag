@@ -1,0 +1,90 @@
+@import 'variables';
+
+.post-component {
+  position: relative;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  &:hover, 
+  &:focus, 
+  &.active {
+    border-color: $blue;
+    .feature-btn {
+      display: inline-block;
+    }
+  }
+
+  a.thumbnail:hover, 
+  a.thumbnail:focus, 
+  a.thumbnail.active {
+    border-color: $light-grey;
+  }
+
+  .thumbnail{
+    .iImg{
+      height: 320px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .iVideo{
+      height: 315px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .iCarousel{
+      overflow: hidden;
+      height: 320px;
+      width: 100%;
+    }
+  }
+
+  .feature-btn {
+    text-transform: uppercase;
+    display: none;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: $green;
+    border-color: $light-green;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1024;
+  }
+  .feature-btn:hover, 
+  .feature-btn:focus, 
+  .feature-btn.active{
+    text-decoration: none;
+  }
+
+  .social-cnt{
+    font-weight: bold;
+    margin: 0px;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: $black;
+  }
+
+  .pre{
+    white-space: pre-wrap;
+    margin-bottom: 0px;
+  }
+}

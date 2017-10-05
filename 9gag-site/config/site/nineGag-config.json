@@ -1,0 +1,8 @@
+{
+  "env": "dev",
+  "siteName": "9gag Instagram",
+  "api": {
+    "url": "http://localhost:8282/api/post"
+  }
+}
+  

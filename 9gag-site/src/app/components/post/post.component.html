@@ -1,0 +1,30 @@
+<div class="well post-component">
+    <a href="javascript:void(0);" *ngIf="!postData?.featured" (click)="onSaveFeatured(postData?.iId, $event)" class="feature-btn">Add​ to​ ​Featured</a>
+    <div class="thumbnail" [ngSwitch]="postData.type">
+        <img class="iImg" src="{{postData?.image?.low_resolution?.url}}" alt="" *ngSwitchCase="'image'" />
+
+        <video class="iVideo" width="310" height="315" controls *ngSwitchCase="'video'">
+            <source src="{{postData?.video?.low_bandwidth?.url}}" type="video/mp4">
+            <source src="{{postData?.video?.low_bandwidth?.url}}" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="iCarousel" *ngSwitchCase="'carousel'">
+            <div class="slide" *ngFor="let carouselImg of postData?.carousel">
+              <img src="{{carouselImg?.low_resolution?.url}}" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">
+            <p class="social-cnt">{{postData?.likeCount | formatNumber:','}} Likes</p>
+            <p class="social-cnt">{{postData?.commentCount | formatNumber:','}} Comments</p>
+        </div>
+        <div class="col-md-6 col-xs-6 col-sm-6">
+            <a href="{{postData?.link}}" target="_blank" class="social-cnt text-right">Posted {{timeAgo}}</a>
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12">
+            <p class="pre" [innerHTML]="postData?.caption | formatMention"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="main-component container">
+  <div class="row post-container">
+      <div class="col-xs-12 col-sm-4 col-md-4 post-content-container" *ngFor="let post of postData">
+          <post-component [postData]="post"></post-component>  
+      </div>
+  </div>
+</div>

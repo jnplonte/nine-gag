@@ -1,0 +1,22 @@
+{
+  "name": "9gag-api",
+  "version": "1.0.0",
+  "description": "9gag api",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.14.1",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.16.1",
+    "gulp": "^3.8.7",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^1.0.4"
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "John Paul Onte <jnpl.onte@gmail.com",
+  "license": "MIT"
+}

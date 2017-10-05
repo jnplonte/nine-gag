@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'bootstrap';
+
+.text-right {
+    text-align: right;
+}
+
+.row {
+    @include media(display-sm) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @include media(display-md) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+.row > [class*='col-'] {
+    @include media(display-sm) {
+        display: flex;
+        flex-direction: column;
+    }
+    @include media(display-md) {
+        display: flex;
+        flex-direction: column;
+    }
+}

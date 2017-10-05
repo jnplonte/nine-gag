@@ -1,0 +1,11 @@
+{
+    "name": "9gag-cli",
+    "version": "1.0.0",
+    "description": "9gag cli",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "cilex/cilex": "^1.1",
+        "phpunit/phpunit": "^4.8"
+    }
+}
