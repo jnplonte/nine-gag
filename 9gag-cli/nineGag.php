@@ -15,5 +15,6 @@ foreach (glob('nineGag/*.php') as $filename){
 $app = new \Cilex\Application('Cilex');
 
 $app->command(new \Cilex\Command\instagramImport());
+$app->command(new \Cilex\Command\featuredImport());
 
 $app->run();

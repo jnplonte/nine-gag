@@ -5,11 +5,13 @@ var helper = {
   "toJson":       toJson,
 	"queryLimit": 	queryLimit,
   "queryOrder": 	queryOrder,
+  "queryWhere":   queryWhere,
 	"getQuery": 		getQuery,
 	"postQuery": 		postQuery,
 	"putQuery": 		putQuery,
 	"deleteQuery": 	deleteQuery
 };
+
 
 function toJson(jsonData) {
   var  response = '';
@@ -39,6 +41,20 @@ function queryOrder(query, key, sort) {
   }
 
   query = query + ' ORDER BY ' + key + ' ' + sort.toUpperCase();
+
+  return query;
+}
+
+function queryWhere(query, key, value) {
+  key = key || null; value = value || null;
+
+  if(key && value) {
+    querySelect = 'WHERE';
+    if(query.indexOf('WHERE') >= 0) {
+      querySelect = 'AND';
+    }
+    query = query + ' ' + querySelect + ' ' + key + '=' + value;
+  }
 
   return query;
 }

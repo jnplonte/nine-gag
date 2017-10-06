@@ -7,6 +7,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MainComponent } from './components/main/main.component';
+import { FeaturedComponent } from './components/featured/featured.component';
 import { PostComponent } from './components/post/post.component';
 
 import { ConfigService } from './services/config/config.service';
@@ -19,6 +20,9 @@ const appRoutes: Routes = [
   { path: '',
     component: MainComponent
   },
+  { path: 'featured',
+    component: FeaturedComponent
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -27,7 +31,7 @@ const appRoutes: Routes = [
                   HttpModule,
                   JsonpModule,
                   RouterModule.forRoot(appRoutes) ],
-  declarations: [ AppComponent, MainComponent, PageNotFoundComponent, PostComponent,
+  declarations: [ AppComponent, MainComponent, FeaturedComponent, PageNotFoundComponent, PostComponent,
                   formatNumberPipe, formatMentionPipe ],
   providers:    [ {provide: 'configService', useFactory: () => ConfigService.getInstance()},
                   {provide: 'helperService', useClass: HelperService} ],

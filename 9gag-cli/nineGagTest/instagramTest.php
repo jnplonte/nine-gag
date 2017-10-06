@@ -4,7 +4,7 @@ use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class instagramImport extends \PHPUnit_Framework_TestCase{
+class instagramTest extends \PHPUnit_Framework_TestCase{
 
     private $userName = '9gag';
     private $postNumber = '20';
@@ -62,5 +62,13 @@ class instagramImport extends \PHPUnit_Framework_TestCase{
         $commandTester = $this->executeTest('instagram:import', array('userName' => 'invalid-instagram-random-user-name', 'postNumber' => $this->postNumber), true);
 
         $this->assertRegExp('/invalid user name/', $commandTester->getDisplay());
+    }
+
+    public function testImportFeaturedSuccess(){
+        $this->application->add(new \Cilex\Command\featuredImport());
+
+        $commandTester = $this->executeTest('instagram:featured');
+
+        $this->assertRegExp('/data import success/', $commandTester->getDisplay());
     }
 }

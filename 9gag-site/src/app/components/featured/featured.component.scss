@@ -1,0 +1,13 @@
+@import 'variables';
+
+.featured-component {
+  .post-container {
+    margin-top: 15px;
+  }
+
+  .error{
+    color: $red;
+    text-align: center;
+    width: 100%; 
+  }
+}

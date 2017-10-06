@@ -5,6 +5,27 @@
     text-align: right;
 }
 
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: $blue;
+}
+
+.btn-click {
+    font-weight: bold;
+    text-decoration: none;
+    background: $orange;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.btn-click:hover,
+.btn-click:active {
+    color: #fff;
+    text-decoration: none;
+    background: $dark-orange1;
+}
+
 .row {
     @include media(display-sm) {
         display: -webkit-box;

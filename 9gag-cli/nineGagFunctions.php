@@ -101,4 +101,24 @@ class nineGagFunctions
             
         return $hasError;
     }
+
+    public function _insertFeatured(){
+        $this->_DBConnect();
+        
+        if (!$this->conn) {
+            return 'connection to database failed';
+        }
+
+        $sqlInsert = "INSERT INTO featured (iId) SELECT post.iId FROM post WHERE NOT EXISTS(SELECT iId FROM featured WHERE featured.iId = post.iId) AND post.featured = 1";
+
+        if (mysqli_query($this->conn, $sqlInsert)) {
+            $hasError = false;
+        } else {
+            $hasError = mysqli_error($this->conn);
+        }
+
+        mysqli_close($this->conn);
+            
+        return $hasError;
+    }
 }

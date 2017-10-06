@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { MainComponent } from './main.component';
+import { FeaturedComponent } from './featured.component';
 
 import { PostComponent } from './../post/post.component';
 import {formatMentionPipe} from './../../pipes/format-mention/format-mention.pipe';
@@ -16,17 +16,17 @@ import {formatNumberPipe} from './../../pipes/format-number/format-number.pipe';
 import { ConfigService } from './../../services/config/config.service';
 import { HelperService } from './../../services/helper/helper.service';
 
-describe('Component: MainComponent', function () {
+describe('Component: FeaturedComponent', function () {
   let el: HTMLElement;
   let de: DebugElement;
-  let comp: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+  let comp: FeaturedComponent;
+  let fixture: ComponentFixture<FeaturedComponent>;
 
   beforeEach(async(() => {
     ConfigService.loadInstance('./base/site/test-config.json').then(() => {
       TestBed.configureTestingModule({
         declarations: [
-          MainComponent,
+          FeaturedComponent,
           PostComponent,
           formatMentionPipe, formatNumberPipe
         ],
@@ -40,7 +40,7 @@ describe('Component: MainComponent', function () {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(FeaturedComponent);
     comp = fixture.componentInstance;
   });
 
@@ -48,9 +48,9 @@ describe('Component: MainComponent', function () {
     expect(comp).toBeDefined();
   });
 
-  it('should have expected main-component div', () => {
+  it('should have expected featured-component div', () => {
     fixture.detectChanges();
-    de = fixture.debugElement.query(By.css('.main-component'));
+    de = fixture.debugElement.query(By.css('.featured-component'));
     expect(de.nativeElement).toBeDefined();
   });
 });

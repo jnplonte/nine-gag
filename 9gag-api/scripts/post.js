@@ -14,7 +14,13 @@ function allPost(req, res) {
 	var page = req.query.page || 1;
 	var sort = req.query.sort || 'DESC';
 	var key  = req.query.key || 'id';
+	var featured = (req.query.featured == 'true');
+
 	var finalQuery = query;
+
+	if(featured) {
+		finalQuery = helper.queryWhere(query, 'featured', '1');
+	}
 
 	helper.getQuery(helper.queryLimit(helper.queryOrder(finalQuery, key, sort), parseInt(page)), function(results){
 		if(typeof(results) !== 'undefined' && results !== '' && results !== null){
