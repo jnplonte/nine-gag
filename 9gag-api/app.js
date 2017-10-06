@@ -23,3 +23,5 @@ var server = app.listen(config.port, function () {
   var port = server.address().port;
   console.log('api listening to http://localhost:%s', port);
 });
+
+module.exports = server;

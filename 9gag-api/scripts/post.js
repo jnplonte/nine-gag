@@ -16,11 +16,18 @@ function allPost(req, res) {
 	var key  = req.query.key || 'id';
 	var finalQuery = query;
 
-	helper.getQuery(helper.queryLimit(helper.queryOrder(finalQuery, key, sort), page), function(results){
-		results.forEach(function(val) {
-			val = cleanField(val);
-		}, this);
-		res.json(results);
+	helper.getQuery(helper.queryLimit(helper.queryOrder(finalQuery, key, sort), parseInt(page)), function(results){
+		if(typeof(results) !== 'undefined' && results !== '' && results !== null){
+			results.forEach(function(val) {
+				val = cleanField(val);
+			}, this);
+			res.json(results);
+		}else{
+			res.json({
+				"error": true,
+				"errorMsg": results
+			});
+		}
 	});
 }
 
@@ -63,7 +70,14 @@ function getPostValue(id, callback) {
 		var finalQuery = query + ' WHERE Iid = ' + connection.escape(id);
 
 		helper.getQuery(finalQuery, function(results){
-			callback(results);
+			if(typeof(results) !== 'undefined' && results !== '' && results !== null){
+				callback(results);
+			}else{
+				callback({
+					"error": true,
+					"errorMsg": results
+				})
+			}
 		});
 	}else{
 		callback({"error": {"code":"instagram id is required"}});

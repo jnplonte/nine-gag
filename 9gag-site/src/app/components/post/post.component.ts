@@ -22,7 +22,11 @@ export class PostComponent {
     }
 
     get timeAgo(){
-        return timeago().format(this.postData['createdTime'] * 1000 || new Date());
+        if (typeof(this.postData) !== 'undefined' && this.postData.hasOwnProperty('createdTime')) {
+            return timeago().format(this.postData['createdTime'] * 1000);
+        } else {
+            return timeago().format(new Date());
+        }
     }
 
     onSaveFeatured(iId: string, event: any): void {

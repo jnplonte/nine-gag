@@ -1,5 +1,6 @@
 <div class="main-component container">
   <div class="row post-container">
+      <h2 class="error" *ngIf="postData.length === 0 && postError">NO DATA FOUND</h2>
       <div class="col-xs-12 col-sm-4 col-md-4 post-content-container" *ngFor="let post of postData">
           <post-component [postData]="post"></post-component>  
       </div>

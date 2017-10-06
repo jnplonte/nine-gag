@@ -1,6 +1,8 @@
 @import 'variables';
 
-.head{
-  color: $red;
-  text-align: center;
+.pahenotfound-component {
+  .error{
+    color: $red;
+    text-align: center;
+  }
 }

@@ -1,6 +1,6 @@
 <div class="well post-component">
     <a href="javascript:void(0);" *ngIf="!postData?.featured" (click)="onSaveFeatured(postData?.iId, $event)" class="feature-btn">Add​ to​ ​Featured</a>
-    <div class="thumbnail" [ngSwitch]="postData.type">
+    <div class="thumbnail" [ngSwitch]="postData?.type">
         <img class="iImg" src="{{postData?.image?.low_resolution?.url}}" alt="" *ngSwitchCase="'image'" />
 
         <video class="iVideo" width="310" height="315" controls *ngSwitchCase="'video'">

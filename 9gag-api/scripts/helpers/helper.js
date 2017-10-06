@@ -22,6 +22,9 @@ function toJson(jsonData) {
 }
 
 function queryLimit(query, page) {
+  if( isNaN(page) ){
+      page = 1;
+  }
   var offset = (page - 1) * parseInt(config.productLimit), rowCount = parseInt(config.productLimit);
   query = query + ' LIMIT ' + offset + ', ' + rowCount;
 

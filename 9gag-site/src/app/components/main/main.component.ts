@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
     private postDoneProcess: boolean = true;
 
     postData: Array<any> = [];
+    postError: boolean = false;
 
     constructor(@Inject('configService') configService: any, @Inject('helperService') helperService: any) {
         this.siteConfig = configService.data;
@@ -35,7 +36,7 @@ export class MainComponent implements OnInit {
     }
 
     get buildPostUrl() {
-        return this.postUrl = this.siteConfig['api']['url'] + '?page=' + this.postPage + '&sort=DESC&key=createdTime'; // hardcoded key for now
+        return this.postUrl = this.siteConfig['api']['url'] + '?page=' + this.postPage + '&sort=DESC&key=createdTime';
     }
 
     ngOnInit(): void {
@@ -48,6 +49,8 @@ export class MainComponent implements OnInit {
                 this.postPage++;
                 this.postDoneProcess = true;
                 this.postData = this.postData.concat(data);
+            } else {
+                this.postError = true;
             }
         });
     }

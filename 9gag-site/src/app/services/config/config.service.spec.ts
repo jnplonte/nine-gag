@@ -1,7 +1,7 @@
 import { async, inject, TestBed } from '@angular/core/testing';
-import { By }           from '@angular/platform-browser';
+import { By } from '@angular/platform-browser';
 
-import { ConfigService } from './../services/config.service';
+import { ConfigService } from './config.service';
 
 describe('Service: ConfigService', function () {
   beforeEach(async(() => {

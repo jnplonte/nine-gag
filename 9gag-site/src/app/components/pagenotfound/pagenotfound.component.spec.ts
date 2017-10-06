@@ -29,7 +29,6 @@ describe('Component: PageNotFoundComponent', function () {
 
   it('should have expected <h2> text', () => {
     fixture.detectChanges();
-    const h2 = de.nativeElement;
-    expect(h2.innerText).toMatch(/PAGE NOT FOUND/i);
+    expect(de.nativeElement.innerText).toMatch(/PAGE NOT FOUND/i);
   });
 });

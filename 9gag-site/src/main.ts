@@ -3,7 +3,7 @@ import { enableProdMode } from '@angular/core';
 
 import { AppModule } from './app/app.module';
 
-import { ConfigService } from './app/services/config.service';
+import { ConfigService } from './app/services/config/config.service';
 
 import './style/styles.scss';
 

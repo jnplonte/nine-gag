@@ -20,13 +20,15 @@ export class HelperService {
     }
 
     formatMention(text: string = '') {
-        // replace #hashtags
-        let replacePattern1: RegExp = /#([^\s#]+)/g;
-        text = text.replace(replacePattern1, '<a class="insta-link" target="_blank" href="https://www.instagram.com/explore/tags/$1">#$1</a>');
+        if (text) {
+            // replace #hashtags
+            let replacePattern1: RegExp = /#([^\s#]+)/g;
+            text = text.replace(replacePattern1, '<a class="insta-link" target="_blank" href="https://www.instagram.com/explore/tags/$1">#$1</a>');
 
-        // replace @mentions
-        let replacePattern2: RegExp = /(^|\s)\@(\w*[a-zA-Z_]+\w*)/gim;
-        text = text.replace(replacePattern2, '$1<a class="insta-link" target="_blank" href="https://www.instagram.com/$2">@$2</a>');
+            // replace @mentions
+            let replacePattern2: RegExp = /(^|\s)\@(\w*[a-zA-Z_]+\w*)/gim;
+            text = text.replace(replacePattern2, '$1<a class="insta-link" target="_blank" href="https://www.instagram.com/$2">@$2</a>');
+        }
 
         return text;
     }
