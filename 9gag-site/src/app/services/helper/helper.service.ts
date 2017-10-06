@@ -135,25 +135,25 @@ export class HelperService {
     }
 
     getData(url: string) {
-        if (this.dataObservers[url]) {
+        if (typeof(this.dataObservers[url]) !== 'undefined') {
             return this.dataObservers[url];
+        } else {
+            let headers: any = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            let observable: Observable<any> = this.http.get(url, {
+            headers: headers
+            })
+            .map((response: Response) =>  {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    return {};
+                }
+            }).share();
+
+            return this.dataObservers[url] = observable;
         }
-
-        let headers: any = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        let observable: Observable<any> = this.http.get(url, {
-           headers: headers
-        })
-        .map((response: Response) =>  {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                return {};
-            }
-        }).share();
-
-        return this.dataObservers[url] = observable;
     }
 
     putData(url: string, data: Object = {}) {
