@@ -16,6 +16,7 @@
 - install typescript globally `npm install -g typescript`
 - install npm dependencies by running `npm install`
 - install karma-cli globally `npm install -g karma-cli`
+- update the following configurations and database credentials on `{root}/config/site/nineGag-config.json`
 
 
 ## How to Use
